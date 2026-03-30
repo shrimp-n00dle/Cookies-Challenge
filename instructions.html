@@ -1,0 +1,251 @@
+<html>
+
+    <head>
+        <style>
+            body{
+                width:75%;
+                font-family:sans-serif;
+                margin:100px auto;
+            }
+
+            img{
+                height:400px;
+                margin:auto;
+                display:block;
+            }
+
+            div{
+                width:100%;
+                padding: 30px 0px;
+            }
+
+            div:not(:last-child){
+                border-bottom: 1px solid #000;
+            }
+
+            table{
+                width:30%;
+                margin:auto;
+            }
+
+            table td{
+                text-align: center;
+            }
+
+            table tr:nth-child(2n){
+                background-color:lightgray;
+            }
+
+            table tr:not(:nth-child(2n)){
+                background-color:whitesmoke;
+            }
+
+            table th{
+                background-color:#ada8a8;
+            }
+
+            table tr{
+                line-height: 30px;
+            }
+
+            span.button{
+                background-color:#ddd;
+                border-radius: 5px;
+                padding: 5px 30px;
+            }
+
+            div.tip{
+                background-color:beige;
+                padding: 20px;
+                padding-left:40px;
+                margin:20px;
+                margin-left:40px;
+                border-bottom: none;
+                box-sizing: border-box;
+                color:#555;
+                font-size: 85%;
+                border-left-color: #f0d793;
+                border-left-width: 10px;
+                border-left-style: solid;
+            }
+
+            div xmp{
+                margin-left:20px;
+                background-color:#fff;
+                color:black;
+                padding:10px;
+                padding-left:20px;
+
+            }
+
+            pre{
+                display:inline;
+                font-size:110%;
+                color:black;
+            }
+
+            #title{
+                display:flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: flex-start;
+                align-content: center;
+                height:100px;
+            }
+
+            #title h1{
+                flex: 1 1 auto;
+                margin-left:20px;
+            }
+
+            #title img{
+                flex:0 1 auto;
+                width:100px;
+                height:100px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div id="title">
+            <img src="cookie.png"><h1>Cookie Exercise</h1>
+        </div>
+
+        <div>
+            <h4>Notes:</h4>
+            <ul>
+                <li>
+                    You don't have to specifically match the UI in terms of font size, color, and measurements.
+                </li>
+                <li>
+                    All elements (the text in the post, the post boxes, and the background, the drop down boxes) should be present in your recreation.
+                </li>
+                <li>
+                    You need to use cookies to store the preferences. The keys you will be using are up to you. The number of cookies you will be using is up to you.
+                </li>
+                <li>
+                    The number of HTMLs, JS files, etc are up to you.
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Site to recreate</h4>
+            <p>
+                You will create a simple site that shows at least 2 <i>posts</i> of text. Somewhere in the page is a link to <a href="">Set Preferences</a>.
+            </p>
+            <img src="preferences-1.png">
+
+            <div class="tip">
+                If you code,
+                <xmp> <a href="preferences">Set Prefs</a> </xmp>
+                this will connect to the helper with the path <pre>/preferences</pre>.
+            </div>
+
+            <p>
+                When the user clicks on the <a href="">Set Preferences</a>, they will be directed to a page where they can set the
+                <ul>
+                    <li>background color</li>
+                    <li>post color</li>
+                    <li>text color</li>
+                </ul>
+            </p>
+            <img src="preferences-2.png">
+
+            <p>
+                For all three preferences, the user can set the colors to either
+                <ul>
+                    <li>Red</li>
+                    <li>Green</li>
+                    <li>Blue</li>
+                    <li>Yellow</li>
+                    <li>Black</li>
+                    <li>White</li>
+                </ul>
+            </p>
+
+            <!-- <div class="tip">
+                If you put a name on the <pre>select</pre> tag, you can get the value of the option selected.
+
+                <xmp>
+<select name="postcolor">
+    <option value="red">Red</option>
+    ...
+</select>
+                </xmp>
+
+                <xmp>request.getParameter("postcolor");</xmp>
+
+                If the user chooses the option <pre>Red</pre>, value returned by the second statement will be <pre>red</pre>.
+
+            </div> -->
+
+            <div class="tip">
+                You can choose your own shade for the colors.
+            </div>
+
+            <p>
+                Let's say the user chose these set of preferences.
+            </p>
+
+            <img src="preferences-3.png">
+
+            <p>
+                The user will see these colors in return.
+            </p>
+
+            <img src="preferences-4.png">
+
+            <p>
+                These coloring scheme will remain for a day, even after the user closes the browser.
+            </p>
+        </div>
+
+        <div>
+            <h4>Test your work</h4>
+            <ul>
+                <li>Refresh the index page after setting the color preferences. This should still show the newly preferred colors.</li>
+                <li>Close your browser, and open the page again. The preferred colors should still be on display.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Improve the site</h4>
+            <ul>
+                <li>Set a default color palette from the start.</li>
+                <li>Allow the user to clear all cookies.</li>
+                <li>On the preferences page, set the drop down boxes to the current colors chosen. You'll need to use fancy JavaScript footwork here.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Breakdown of Grades</h4>
+            <table>
+                <thead>
+                    <th>Item</th>
+                    <th>Points</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>At least two notes are present</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>User can set preferences</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Cookies are added to remember preferences</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Cookies are read to remember preferences</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+
+</html>
