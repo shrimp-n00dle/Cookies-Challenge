@@ -1,0 +1,114 @@
+
+body {
+    background-color: darkslategrey;
+    text-decoration-color: aliceblue;
+    color: #ffffff;
+}
+
+
+.submit_button {
+    padding: 8px 15px;
+    background-color: #408EE0;
+    color: #ffffff;
+}
+
+ul li{
+    list-style: none;
+    font-size: 20px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li.incomplete::after{
+    content: "";
+    position:absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 30%;
+    background-color: pink;
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    right: 8px;
+}
+
+ul li.complete::after{
+    content: "";
+    position:absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 30%;
+    background-color: lightgreen;
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    right: 8px;
+}
+
+button.crossout::after{
+    content: "Delete Task";
+    position:absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li::before{
+    content: "";
+    position:absolute;
+    height: 40px;
+    width: 20px;
+    border-radius: 0%;
+    background-color:  #EDB231;
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.Low::before{
+    content: "";
+    position:absolute;
+    height: 40px;
+    width: 20px;
+    border-radius: 0%;
+    background-color: #46ABE3;
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.Medium::before{
+    content: "";
+    position:absolute;
+    height: 40px;
+    width: 20px;
+    border-radius: 0%;
+    background-color: #EDB231;
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.High::before{
+    content: "";
+    position:absolute;
+    height: 40px;
+    width: 20px;
+    border-radius: 0%;
+    background-color: #D6392E;
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
