@@ -1,6 +1,6 @@
 
 body {
-    background-color: darkslategrey;
+    background-color: #EDB231;
     text-decoration-color: aliceblue;
     color: #ffffff;
 }
@@ -10,6 +10,12 @@ body {
     padding: 8px 15px;
     background-color: #408EE0;
     color: #ffffff;
+}
+
+.textContainer {   
+    padding: 8px 15px;
+    background-color: #90d6ff;
+    color: #654321;
 }
 
 ul li{
