@@ -1,16 +1,51 @@
 <html>
+<head>
 <title> Preferences </title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+    <p> Choose your preferred theme: </p>
+
+    <p> Background Color </p>
     <form>
     <select class="bgColor">
+        <option value="Red" > Red </option>
         <option value="Green" > Green </option>
-        <option value="White" > White </option>
         <option value="Blue" > Blue </option>
+        <option value="Yellow" > Yellow </option>
+        <option value="Yellow" > Black </option>
+        <option value="White" > White </option>
+        
+
     </select>
-    <button type="button" class="submit_button" onclick="updatePref()"> Submit Query </button>
     </form>
 
+    <p> Font Color </p>
+    <form>
+    <select class="fontColor">
+        <option value="Red" > Red </option>
+        <option value="Green" > Green </option>
+        <option value="Blue" > Blue </option>
+        <option value="Yellow" > Yellow </option>
+        <option value="Yellow" > Black </option>
+        <option value="White" > White </option>
+    </select>
+    </form>
+
+    <p> Post Color </p>
+    <form>
+    <select class="postColor">
+        <option value="Red" > Red </option>
+        <option value="Green" > Green </option>
+        <option value="Blue" > Blue </option>
+        <option value="Yellow" > Yellow </option>
+        <option value="Yellow" > Black </option>
+        <option value="White" > White </option>
+    </select>
+    </form>
+
+
+  <button type="button" class="submit_button" onclick="updatePref()"> Submit Query </button>
   <script src="cookie-coding.js"></script>
 
-  
 </html>
