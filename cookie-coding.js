@@ -5,35 +5,43 @@ const submitBtn = document.querySelector(".submit_button");
 
 const textbug = document.querySelector(".test");
 
-// submitBtn.addEventListener("click", () => 
-//     {
-    
-//             //Debugging purposes
-//         textbug.innerHTML = "Yiee!";
-//         updatePref(bgColor, bgColor.value, 1);
-//     } )
+// document.cookie = "BackgroundColor=red; path=/";
+// document.cookie = "FontColor=white; path=/";
+// document.cookie = "PostColor=blue; path=/";
 
-function Test()
+
+function Test(text)
 {
-        textbug.innerHTML = "Yiee!";
+        textbug.innerHTML = text;
 }
 
 
-function updatePref(name,value,exp_Day)
+function updatePref()
 {
-
-
-
+    //Date
     const date = new Date();
-    date.setTime(date.getTime() + exp_day * 24 * 60 * 60 * 1000);
+    date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
     let cookie_date = "expries at: " + date.toUTCString();
-    document.cookie = '${name}=${value}; ${expires}; path=/';
-}
+    Test(cookie_date);
 
-//updatePref("background-color","White",1);
+    //test toggle
+   //document.body.style.backgroundColor = "red";
+   //document.cookie = '; ${cookie_date}; path=/';
 
 
-function deletePref(name)
-{
-    updatePref(name,null,null);
+    //bgColor
+    document.body.style.backgroundColor=red;
+
+
+
+    //fontColor
+    document
+
+
+    //postColor
+
+
+   
+
+
 }
