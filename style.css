@@ -13,7 +13,10 @@ body {
 }
 
 .textContainer {   
-    padding: 8px 15px;
+    text-align: center;
+    padding: 10px 100px;
+    padding-left: 20%;
+    padding-right: 20%;
     background-color: #90d6ff;
     color: #654321;
 }
