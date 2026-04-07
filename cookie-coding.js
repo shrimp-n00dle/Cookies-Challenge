@@ -1,47 +1,89 @@
 
 const bgColor = document.querySelector(".bgColor");
 
+const postColor = document.querySelector(".postColor");
+
+const fontColor = document.querySelector(".fontColor");
+
 const submitBtn = document.querySelector(".submit_button");
+
+const siteFont = document.querySelector(".siteFont");
 
 const textbug = document.querySelector(".test");
 
-// document.cookie = "BackgroundColor=red; path=/";
-// document.cookie = "FontColor=white; path=/";
-// document.cookie = "PostColor=blue; path=/";
+const sitePost = document.querySelector(".textContainer");
 
 
-function Test(text)
+window.onload = function() {
+    let savedColor = getBgCookie();
+    if (savedColor != "") {
+        document.body.style.backgroundColor = savedColor;
+    }
+
+    let savedPColor = getPostCookie();
+    if (savedPColor != "") {
+        sitePost.style.color = savedPColor;
+    }
+
+    let savedFColor = getFontCookie();
+    if (savedFColor != "") {
+        siteFont.style.color = savedFColor;
+    }
+
+};
+
+function getPostCookie()
 {
-        textbug.innerHTML = text;
+    let name = "sitePost.style.color=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(name) == 0) {
+            textbug.innerHTML = "onload called";
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
 
+function getBgCookie() {
+    let name = "document.body.style.backgroundColor=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(name) == 0) {
+            textbug.innerHTML = "onload called";
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
-function updatePref()
+function updatePref(name,value)
 {
     //Date
     const date = new Date();
     date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
-    let cookie_date = "expries at: " + date.toUTCString();
-    Test(cookie_date);
-
-    //test toggle
-   //document.body.style.backgroundColor = "red";
-   //document.cookie = '; ${cookie_date}; path=/';
+    let cookie_date = "expires=" + date.toUTCString();
 
 
     //bgColor
-    document.body.style.backgroundColor=red;
-
+    let b_color = document.querySelector(".bgColor").value;
+    document.cookie = "document.body.style.backgroundColor=" + b_color + ";" + cookie_date + ";path=/";
+    document.body.style.backgroundColor= b_color;
 
 
     //fontColor
-    document
+    let f_color = document.querySelector(".fontColor").value;
+    document.cookie = "sitefont.style.color=" + f_color  + ";" + cookie_date  + ";path=/";
+    siteFont.style.color = f_color;
 
 
     //postColor
-
-
-   
-
+    let p_color = document.querySelector(".postColor").value;
+    document.cookie = "sitePost.style.color=" + p_color + ";" + cookie_date  + ";path=/";
+    sitePost.style.color = p_color;
 
 }
