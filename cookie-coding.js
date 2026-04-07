@@ -14,20 +14,20 @@ const sitePost = document.querySelector(".textContainer");
 
 window.onload = function() {
 
-    // let cookieBg = getBgCookie();
-    // if (cookieBg != "") {
-    //     document.body.style.backgroundColor = cookieBg;
-    // }
+    let cookieBg = getBgCookie();
+    if (cookieBg != "") {
+        document.body.style.backgroundColor = cookieBg;
+    }
 
-    // let cookiePost = getPostCookie();
-    // if (cookiePost != "") {
-    //     sitePost.style.color = cookiePost;
-    // }
+    let cookiePost = getPostCookie();
+    if (cookiePost != "") {
+        sitePost.style.color = cookiePost;
+    }
 
-    // let cookieFont = getFontCookie();
-    // if (cookieFont != "") {
-    //     siteFont.style.color = cookieFont;
-    // }
+    let cookieFont = getFontCookie();
+    if (cookieFont != "") {
+        siteFont.style.color = cookieFont;
+    }
 
 };
 
@@ -101,12 +101,13 @@ function updatePrefs()
     //fontColor
     let f_color = document.querySelector(".fontColor").value;
     document.cookie = "fontColor=" + f_color  + ";" + cookie_date  + ";path=/";
+    document.cookie = "sitefont.style.color=" + f_color  + ";" + cookie_date  + ";path=/";
     siteFont.style.color = f_color;
 
 
     //postColor
     let p_color = document.querySelector(".postColor").value;
-    document.cookie = "postColor=" + p_color + ";" + cookie_date  + ";path=/";
+    document.cookie = "sitePost.style.color=" + p_color + ";" + cookie_date  + ";path=/";
     sitePost.style.color = p_color;
 
 }
