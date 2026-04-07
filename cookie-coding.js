@@ -2,28 +2,16 @@
 const postColor = document.querySelector(".postColor");
 const bgColor = document.querySelector(".bgColor");
 const fontColor = document.querySelector(".fontColor");
-const submitBtn = document.querySelector(".submit_button");
+const submitBtn = document.getElementById("query_button");
 const siteFont = document.querySelector(".siteFont");
 const textbug = document.querySelector(".test");
 const sitePost = document.querySelector(".textContainer");
 
 
 window.onload = function() {
-    let savedColor = getBgCookie();
-    if (savedColor != "") {
-        document.body.style.backgroundColor = savedColor;
-    }
-
-    let savedPColor = getPostCookie();
-    if (savedPColor != "") {
-        sitePost.style.color = savedPColor;
-    }
-
-    let savedFColor = getFontCookie();
-    if (savedFColor != "") {
-        siteFont.style.color = savedFColor;
-    }
-
+    document.body.style.backgroundColor = getBgCookie();
+    sitePost.style.color = getPostCookie();
+    siteFont.style.color =  getFontCookie();
 };
 
 function getBgCookie()
@@ -47,29 +35,37 @@ function getBgCookie()
 function getFontCookie()
 {
     let name = "fontColor";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-        let c = ca[i].trim();
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+    const cDecoded = decodeURIComponent(document.cookie);
+    const cArray = cDecoded.split(";");
+    let result = null;
+
+    cArray.forEach(element =>
+    {
+        if (element.indexOf(name) == 0)
+        {
+            result = element.substring(name.length + 1);
         }
     }
-    return "";
+    )
+    return result;
 }
 
 function getPostCookie()
 {
     let name = "postColor";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-        let c = ca[i].trim();
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+    const cDecoded = decodeURIComponent(document.cookie);
+    const cArray = cDecoded.split(";");
+    let result = null;
+
+    cArray.forEach(element =>
+    {
+        if (element.indexOf(name) == 0)
+        {
+            result = element.substring(name.length + 1);
         }
     }
-    return "";
+    )
+    return result;
 }
 
 function updatePref()
@@ -106,7 +102,6 @@ function resetCookies()
     const date = new Date();
     date.setTime(date.getTime() + 0 * 24 * 60 * 60 * 1000);
     let cookie_date = "expires=" + date.toUTCString();
-
 
     document.cookie = "bgColor=" + null +";" +  cookie_date + null + ";" + "path=/";
     document.cookie = "fontColor=" + null +";" +  cookie_date + null + ";" + "path=/";
