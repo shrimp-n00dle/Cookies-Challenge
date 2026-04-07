@@ -1,32 +1,27 @@
+
 const postColor = document.querySelector(".postColor");
 const bgColor = document.querySelector(".bgColor");
-
 const fontColor = document.querySelector(".fontColor");
 const submitBtn = document.querySelector(".submit_button");
-
 const siteFont = document.querySelector(".siteFont");
-
 const textbug = document.querySelector(".test");
-
 const sitePost = document.querySelector(".textContainer");
 
-//initialPrefs();
 
 window.onload = function() {
-
-    let cookieBg = getBgCookie();
-    if (cookieBg != "") {
-        document.body.style.backgroundColor = cookieBg;
+    let savedColor = getBgCookie();
+    if (savedColor != "") {
+        document.body.style.backgroundColor = savedColor;
     }
 
-    let cookiePost = getPostCookie();
-    if (cookiePost != "") {
-        sitePost.style.color = cookiePost;
+    let savedPColor = getPostCookie();
+    if (savedPColor != "") {
+        sitePost.style.color = savedPColor;
     }
 
-    let cookieFont = getFontCookie();
-    if (cookieFont != "") {
-        siteFont.style.color = cookieFont;
+    let savedFColor = getFontCookie();
+    if (savedFColor != "") {
+        siteFont.style.color = savedFColor;
     }
 
 };
@@ -46,29 +41,22 @@ function getBgCookie()
         }
     }
     )
-
     return result;
 }
 
 function getFontCookie()
 {
     let name = "fontColor";
-    const cDecoded = decodeURIComponent(document.cookie);
-    const cArray = cDecoded.split(";");
-    let result = null;
-
-    cArray.forEach(element =>
-    {
-        if (element.indexOf(name) == 0)
-        {
-            result = element.substring(name.length + 1);
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
         }
     }
-    )
-
-    return result;
+    return "";
 }
-
 
 function getPostCookie()
 {
@@ -84,7 +72,7 @@ function getPostCookie()
     return "";
 }
 
-function updatePrefs()
+function updatePref()
 {
     //Date
     const date = new Date();
@@ -95,19 +83,18 @@ function updatePrefs()
     //bgColor
     let b_color = document.querySelector(".bgColor").value;
     document.cookie = "bgColor=" + b_color  + ";" + cookie_date  + ";path=/";
-    document.body.style.backgroundColor = b_color;
+    document.body.style.backgroundColor= b_color;
 
  
     //fontColor
     let f_color = document.querySelector(".fontColor").value;
     document.cookie = "fontColor=" + f_color  + ";" + cookie_date  + ";path=/";
-    document.cookie = "sitefont.style.color=" + f_color  + ";" + cookie_date  + ";path=/";
     siteFont.style.color = f_color;
 
 
     //postColor
     let p_color = document.querySelector(".postColor").value;
-    document.cookie = "sitePost.style.color=" + p_color + ";" + cookie_date  + ";path=/";
+    document.cookie = "postColor=" + p_color + ";" + cookie_date  + ";path=/";
     sitePost.style.color = p_color;
 
 }
@@ -124,33 +111,4 @@ function resetCookies()
     document.cookie = "bgColor=" + null +";" +  cookie_date + null + ";" + "path=/";
     document.cookie = "fontColor=" + null +";" +  cookie_date + null + ";" + "path=/";
     document.cookie = "postColor=" + null +";" +  cookie_date + null + ";" + "path=/";
-}
-
-
-function initialPrefs()
-{
-    //Date
-    const date = new Date();
-    date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
-    let cookie_date = "expires=" + date.toUTCString();
-
-
-    //bgColor
-    let bgName = "bgColor";
-    let b_color = "red";
-    document.cookie = `${bgName}=${b_color};${cookie_date};path=/`;
-    document.body.style.backgroundColor = b_color;
-
- 
-    //fontColor
-    let f_color = "black";
-    document.cookie = "fontColor=" + f_color  + ";" + cookie_date  + ";path=/";
-    siteFont.style.color = f_color;
-
-
-    //postColor
-    let p_color = "green";
-    document.cookie = "postColor=" + p_color + ";" + cookie_date  + ";path=/";
-    sitePost.style.color = p_color;
-
 }
